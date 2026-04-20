@@ -29,15 +29,17 @@
         /* --- Header --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 1rem 8%; background: rgba(255, 255, 255, 0.8);
+            padding: 0.8rem 8%; background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px); position: fixed; width: 100%; top: 0; z-index: 1000;
             border-bottom: 1px solid var(--slate-200);
         }
-        .logo { font-size: 1.6rem; font-weight: 800; text-decoration: none; color: var(--slate-900); display: flex; align-items: center; gap: 10px; }
-        .logo span { color: var(--primary); }
+        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 40px; width: auto; object-fit: contain; }
+        .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--slate-900); }
+        .logo-text span { color: var(--primary); }
 
         .nav-right { display: flex; align-items: center; gap: 25px; }
-        .nav-link { text-decoration: none; color: var(--slate-900); font-weight: 600; transition: 0.3s; }
+        .nav-link { text-decoration: none; color: var(--slate-900); font-weight: 600; transition: 0.3s; font-size: 0.95rem; }
         .nav-link:hover { color: var(--primary); }
 
         /* --- Hero Section --- */
@@ -101,7 +103,10 @@
 <body>
 
     <nav>
-        <a href="#" class="logo"><i data-lucide="zap"></i>Hero<span>Labs</span></a>
+        <a href="#" class="logo-container">
+            <img src="https://github.com/HeroLabsTech/HeroLabsTech.github.io/blob/main/assets/Logo_Hero%201.png?raw=true" alt="HeroLabs Logo" class="logo-img">
+            <div class="logo-text">Hero<span>Labs</span></div>
+        </a>
         <div class="nav-right">
             <a href="#about" class="nav-link">Company</a>
             <a href="#services" class="nav-link">Services</a>
@@ -177,7 +182,10 @@
     <footer id="contact">
         <div class="footer-grid">
             <div data-aos="fade-right">
-                <h2 class="logo" style="color: white; margin-bottom: 20px;"><i data-lucide="zap"></i>Hero<span>Labs</span></h2>
+                <div class="logo-container" style="margin-bottom: 20px;">
+                    <img src="https://github.com/HeroLabsTech/HeroLabsTech.github.io/blob/main/assets/Logo_Hero%201.png?raw=true" alt="HeroLabs Logo" class="logo-img" style="filter: brightness(0) invert(1);">
+                    <div class="logo-text" style="color: white;">Hero<span>Labs</span></div>
+                </div>
                 <p style="color: #94a3b8; max-width: 350px; line-height: 1.6;">Transforming your boldest ideas into world-class digital products. We specialize in high-performance engineering for modern businesses.</p>
             </div>
             <div data-aos="fade-up">
@@ -213,9 +221,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Icons
         lucide.createIcons();
-        // Initialize Scroll Animations
         AOS.init({
             duration: 1000,
             once: true,
