@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeroLabs | Premium Mobile App Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #0f172a;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(248, 250, 252, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 180px 10% 100px;
+            text-align: center;
+            background: radial-gradient(circle at top right, #e0e7ff, transparent),
+                        radial-gradient(circle at bottom left, #f1f5f9, transparent);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary), #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: var(--primary-dark);
+        }
+
+        /* --- Services Section --- */
+        .services { padding: 100px 10%; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: #eef2ff;
+            color: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 { margin-bottom: 1rem; font-size: 1.4rem; }
+
+        /* --- Footer / Contact --- */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 80px 10% 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 60px;
+        }
+
+        .footer-info h2 { color: var(--white); margin-bottom: 1rem; }
+        .footer-info p { color: #94a3b8; margin-bottom: 1rem; }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+        }
+
+        .copyright {
+            padding-top: 40px;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .footer-content { grid-template-columns: 1fr; }
+            .hero { padding-top: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo"><i data-lucide="cpu"></i>Hero<span>Labs</span></a>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#about">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Let's Talk</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Crafting the Future of <span>Mobile Experiences</span></h1>
+        <p>We build world-class iOS and Android applications designed for scale, performance, and breathtaking user experience.</p>
+        <div class="cta-group">
+            <a href="#services" class="btn-primary">View Our Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>Our Expertise</h2>
+            <p style="color: var(--text-muted)">Turning complex ideas into simple, intuitive mobile solutions.</p>
+        </div>
+        <div class="service-grid">
+            <div class="card">
+                <div class="icon-box"><i data-lucide="smartphone"></i></div>
+                <h3>iOS Development</h3>
+                <p>Native Swift & SwiftUI applications built for performance and elegance on the Apple ecosystem.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box"><i data-lucide="android"></i></div>
+                <h3>Android Solutions</h3>
+                <p>Robust and scalable Kotlin-based apps that thrive on the world's most popular mobile OS.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box"><i data-lucide="layers"></i></div>
+                <h3>Cross-Platform</h3>
+                <p>High-quality Flutter and React Native apps that provide native feel with a single codebase.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <footer>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h2 class="logo" style="color: white; margin-bottom: 20px;"><i data-lucide="cpu"></i>Hero<span>Labs</span></h2>
+                    <p>HeroLabs is a premier software boutique specialized in high-end mobile engineering. We help startups and enterprises dominate the app store.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1.5rem;">Services</h4>
+                    <ul style="list-style: none; color: #94a3b8;">
+                        <li style="margin-bottom: 0.5rem;">UI/UX Design</li>
+                        <li style="margin-bottom: 0.5rem;">App Development</li>
+                        <li style="margin-bottom: 0.5rem;">Cloud Backend</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1.5rem;">Get in Touch</h4>
+                    <div class="contact-item">
+                        <i data-lucide="map-pin" size="18"></i>
+                        <span>123 Tech Avenue, District 1, HCMC</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="mail" size="18"></i>
+                        <span>hello@herolabs.io</span>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 HeroLabs Studio. All rights reserved. Built with Innovation.
+            </div>
+        </footer>
+    </section>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
